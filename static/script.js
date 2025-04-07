@@ -19,17 +19,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if(valor && moedaOrigem && moedaDestino) {
             try {
-                let response = await fetch(`/cotacao/${moedaOrigem}/${moedaDestino}/${valor}`);
+                if(moedaOrigem != moedaDestino){
+                    let response = await fetch(`/cotacao/${moedaOrigem}/${moedaDestino}/${valor}`);
 
-                if(!response.ok){
-                    let erroData = await response.json()
-                    console.log('Erro: ', erroData.erro)
-                    return
-                } 
-                
-                let cotmoeda = await response.json();
-                document.querySelector('#text-result').innerHTML = `${cotmoeda['valor_convertido']}`;
+                    if(!response.ok){
+                        let erroData = await response.json();
+                        console.log('Erro: ', erroData.erro);
+                        return
+                    } 
 
+                    let cotmoeda = await response.json();
+                    document.querySelector('#text-result').innerHTML = `${cotmoeda['valor_convertido']}`;
+                } else if (moedaOrigem == moedaDestino) {
+                    valorfixado = parseFloat(valor).toFixed(2);
+                    document.querySelector('#text-result').innerHTML = `${valorfixado}`;
+                } else if (input.value == ' '){
+                    document.querySelector('#text-result').innerHTML = '00.00';
+                }
 
             } catch (error) {
                 console.log("Erro: ", error);
