@@ -1,0 +1,72 @@
+:root {
+    --primary-color: #58aca2;
+    --secondary-color: #264653;
+    --acento: #E9C46A;
+    --fundo-claro: #F9F9F9;
+    --error: #E76F51; 
+}
+
+body {
+    background-color: var(--fundo-claro);
+}
+
+.navbar {
+    background-color: var(--secondary-color);
+    margin-bottom: 100px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin:0;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: .8rem;
+    box-shadow: 1px 1px 5px 1px rgba(121, 121, 121, 0.349);
+    background-color: var(--primary-color);
+    padding: 20px;
+}
+
+
+.form {
+    padding: 20px;
+    border-radius: .8rem;
+    min-width: 150px;
+    max-width: 300px;
+    min-height: 400px;
+    max-height: 600px;
+    padding: 16px;
+    background-color: var(--fundo-claro);
+    text-align: center;
+}
+
+.text-result {
+    background-color: var(--primary-color);
+    color: var(--fundo-claro);
+    border-radius: .8rem;
+    padding: 5px;
+}
+
+.result {
+    display: flex;
+    color: var(--fundo-claro);
+    min-width: 150px;
+    max-width: 300px;
+    min-height: 400px;
+    max-height: 600px;
+    border-radius: .8rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: var(--fundo-claro);
+}

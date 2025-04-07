@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <section class="calculator">
+        <div class="container">
+            <div class="row g-3 gap-4">
+                <div class="col form">
+                    <h3 class="mb-3">Currency Converter</h3>
+                    <p class="fs-6 text-start mb-0">From</p>
+                    <select class="form-select" aria-label="Currency" name="moeda1" id="imoeda1">
+                        <option value="BRL">BRL</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="ARS">ARS</option>
+                        <option value="CNY">CNY</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                    </select>
+                    <hr class="divider">
+                    <p class="fs-6 text-start mb-0">To</p>
+                    <select class="form-select" aria-label="Currency" name="moeda1" id="imoeda2">
+                        <option value="BRL">BRL</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="JPY">JPY</option>
+                        <option value="ARS">ARS</option>
+                        <option value="CNY">CNY</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                    </select>
+                    <hr class="divider">
+                    <input type="number" name="currency" id="icurrency" placeholder="value" class="form-control">
+                    <p class="fs-4 fw-bold mt-3" id="text-result">00,00</p>
+                </div>
+    
+                <div class="col ms-4 dashboard">
+                    <div class="row md-4 mb-3">
+                        <div class="card p-3 shadow-sm">
+                            <h6>Inflaction chart</h6>
+                            <p>Grafico da moeda 1</p>
+                        </div>
+                    </div>
+                    <div class="row md-4 mb-3">
+                        <div class="card p-3 shadow-sm">
+                            <h6>Inflaction chart</h6>
+                            <p>Grafico da moeda 2</p>
+                        </div>
+                    </div>
+                    <div class="row md-2">
+                        <div class="col md-2">
+                            <div class="card text-center p-2 shadow-sm">
+                                <small>moeda1 Inflaction</small>
+                                <span class="fw-bold">2,8%</span>
+                            </div>
+                        </div>
+                        <div class="col md-2">
+                            <div class="card text-center p-2 shadow-sm">
+                                <small>moeda2 Inflaction</small>
+                                <span class="fw-bold">3,5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
