@@ -44,8 +44,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }  
 
+    async function atualizadash() {
+        let moedaOrigem = moeda1.value.replace(',', '.');
+        let moedaDestino = moeda2.value.replace(',', '.');
+        if(moedaOrigem && moedaDestino) {
+            let response = await fetch(`/indicadores/${moedaOrigem}/${moedaDestino}/30`);
+            
+            if(!response.ok) {
+                let erroData = await response.json();
+                console.log(erroData.erro);
+                return
+            }
 
-    input.addEventListener('input', debounce(atualizaConversao, 500));
-    moeda1.addEventListener('change', debounce(atualizaConversao,500));
-    moeda2.addEventListener('change', debounce(atualizaConversao, 500));
+            let data = await response.json()
+            let avarageAsk = data["avarage"];
+            let variation = data["variation"];
+            document.querySelector('#variation').innerHTML = `${variation}%`
+            document.querySelector('#avarage-ask').innerHTML = `${avarageAsk}`;
+
+        }
+    }
+
+    //Aplicando a conversão
+    input.addEventListener('input', debounce(atualizaConversao, 300));
+    moeda1.addEventListener('change', debounce(atualizaConversao,300));
+    moeda2.addEventListener('change', debounce(atualizaConversao, 300));
+
+    //Atualização do dashboard
+    moeda1.addEventListener('change', debounce(atualizadash, 300));
+    moeda2.addEventListener('change', debounce(atualizadash, 300));
+    
 });

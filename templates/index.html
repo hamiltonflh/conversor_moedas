@@ -21,9 +21,9 @@
                     <hr class="divider">
                     <p class="fs-6 text-start mb-0">To</p>
                     <select class="form-select" aria-label="Currency" name="moeda1" id="imoeda2">
-                        <option value="BRL">BRL</option>
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
+                        <option value="BRL">BRL Real Brasileiro</option>
+                        <option value="USD">USD Dólar Americano</option>
+                        <option value="EUR">EUR Euro</option>
                         <option value="GBP">GBP</option>
                         <option value="JPY">JPY</option>
                         <option value="ARS">ARS</option>
@@ -37,29 +37,17 @@
                 </div>
     
                 <div class="col ms-4 dashboard">
-                    <div class="row md-4 mb-3">
-                        <div class="card p-3 shadow-sm">
-                            <h6>Inflaction chart</h6>
-                            <p>Grafico da moeda 1</p>
-                        </div>
-                    </div>
-                    <div class="row md-4 mb-3">
-                        <div class="card p-3 shadow-sm">
-                            <h6>Inflaction chart</h6>
-                            <p>Grafico da moeda 2</p>
+                    <div class="row md-6 mb-3">
+                        <div class="card p-3 shadow-sm text-center">
+                            <samll class="card-title">Média Venda Ultimos 30 dias</small>
+                            <span class="cards-values" id="avarage-ask">0,00</span>
                         </div>
                     </div>
                     <div class="row md-2">
                         <div class="col md-2">
                             <div class="card text-center p-2 shadow-sm">
-                                <small>moeda1 Inflaction</small>
-                                <span class="fw-bold">2,8%</span>
-                            </div>
-                        </div>
-                        <div class="col md-2">
-                            <div class="card text-center p-2 shadow-sm">
-                                <small>moeda2 Inflaction</small>
-                                <span class="fw-bold">3,5%</span>
+                                <small>Variação cambial ultimos 30 dias</small>
+                                <span class="fw-bold" id="variation">0%</span>
                             </div>
                         </div>
                     </div>
