@@ -6,74 +6,63 @@
     --error: #E76F51; 
 }
 
+
 body {
-    background: linear-gradient(rgba(255, 255, 255, 0.63), rgba(255, 255, 255, 0.5)), url(images/Fundo.png);;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9));
+    color: #333;
 }
 
 .navbar {
     background-color: var(--secondary-color);
-    margin-bottom: 100px;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    margin:0;
+    margin-bottom: 60px;
 }
 
 .calculator {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: .8rem;
-    box-shadow: 1px 1px 5px 1px rgba(121, 121, 121, 0.349);
+    border-radius: 1rem;
+    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.1);
     background-color: var(--primary-color);
-    background-size: 1080px 720px;
-    background-repeat: repeat;
-    padding: 20px;
+    padding: 40px;
 }
 
 
 .form {
     padding: 20px;
     border-radius: .8rem;
-    min-width: 150px;
-    max-width: 300px;
-    min-height: 400px;
-    max-height: 600px;
-    padding: 16px;
+    padding: 20px;
     background-color: var(--fundo-claro);
     text-align: center;
 }
 
-.text-result {
-    background-color: var(--primary-color);
-    color: var(--fundo-claro);
-    border-radius: .8rem;
-    padding: 5px;
+input.form-control {
+    margin-top: 12px;
 }
 
-.result {
-    display: flex;
-    color: var(--fundo-claro);
-    min-width: 150px;
-    max-width: 300px;
-    min-height: 400px;
-    max-height: 600px;
-    border-radius: .8rem;
-    justify-content: center;
-    align-items: center;
+#text-result {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    background-color: var(--acento);
+    padding: 10px;
+    border-radius: 0.5rem;
+    margin-top: 10px;
 }
 
-.card {
+.dashboard .card {
+    border: none;
     background-color: var(--fundo-claro);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-radius: 1rem;
 }
 
 
-.cards-value {
-    text-align: center;
+.card-title {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.card-text, #variation, #avarage-ask {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
 }

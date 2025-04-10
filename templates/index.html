@@ -1,59 +1,73 @@
 {% extends "layout.html" %}
 
 {% block body %}
-    <section class="calculator">
+    <section class="calculator py-5 bg-light min-vh-100">
         <div class="container">
-            <div class="row g-3 gap-4">
-                <div class="col form">
-                    <h3 class="mb-3">Currency Converter</h3>
-                    <p class="fs-6 text-start mb-0">From</p>
-                    <select class="form-select" aria-label="Currency" name="moeda1" id="imoeda1">
-                        <option value="BRL">BRL</option>
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="JPY">JPY</option>
-                        <option value="ARS">ARS</option>
-                        <option value="CNY">CNY</option>
-                        <option value="CAD">CAD</option>
-                        <option value="CHF">CHF</option>
-                    </select>
-                    <hr class="divider">
-                    <p class="fs-6 text-start mb-0">To</p>
-                    <select class="form-select" aria-label="Currency" name="moeda1" id="imoeda2">
-                        <option value="BRL">BRL Real Brasileiro</option>
-                        <option value="USD">USD Dólar Americano</option>
-                        <option value="EUR">EUR Euro</option>
-                        <option value="GBP">GBP</option>
-                        <option value="JPY">JPY</option>
-                        <option value="ARS">ARS</option>
-                        <option value="CNY">CNY</option>
-                        <option value="CAD">CAD</option>
-                        <option value="CHF">CHF</option>
-                    </select>
-                    <hr class="divider">
-                    <input type="number" name="currency" id="icurrency" placeholder="value" class="form-control">
-                    <p class="fs-4 fw-bold mt-3" id="text-result">00,00</p>
-                </div>
-    
-                <div class="col ms-4 dashboard">
-                    <div class="row md-6 mb-3">
-                        <div class="card p-3 shadow-sm text-center">
-                            <samll class="card-title">Média Venda Ultimos 30 dias</small>
-                            <span class="cards-values" id="avarage-ask">0,00</span>
+            <div class="row g-4">
+                <div class="col-md-6 form">
+                    <div class="card shadow rounded-4 p-4">
+                        <h3 class="mb-3">Currency Converter</h3>
+
+                        <div class="mb-3">
+                            <label for="moeda1" class="form-label">From</label>
+                            <select class="form-select" aria-label="Currency" name="moeda1" id="imoeda1">
+                                {% for codigo, dados in options.items() %}
+                                    {% if (codigo == 'USD') %}
+                                        <option value="{{ codigo }}" selected>{{ codigo }} - {{ dados.nome }} ({{ dados.simbolo }})</option>
+                                    {% endif %}
+                                    <option value="{{ codigo }}">{{ codigo }} - {{ dados.nome }} ({{ dados.simbolo }})</option>
+                                {% endfor %}
+                            </select>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="moeda2" class="form-label">To</label>
+                            <select class="form-select" aria-label="Currency" name="moeda2" id="imoeda2">
+                                {% for codigo, dados in options.items() %}
+                                    {% if (codigo == 'BRL') %}
+                                        <option value="{{ codigo }}" selected>{{ codigo }} - {{ dados.nome }} ({{ dados.simbolo }})</option>
+                                    {% endif %}
+                                    <option value="{{ codigo }}">{{ codigo }} - {{ dados.nome }} ({{ dados.simbolo }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <input type="number" name="currency" id="icurrency" placeholder="value" class="form-control">
+                        </div>
+                        <div class="alert alert-info text-center fw-bold fs-4" id="text-result">$</div>
                     </div>
-                    <div class="row md-2">
-                        <div class="col md-2">
-                            <div class="card text-center p-2 shadow-sm">
-                                <small>Variação cambial ultimos 30 dias</small>
-                                <span class="fw-bold" id="variation">0%</span>
+                </div>
+                <div class="col-md-6 dashboard">
+                    <div class="card shadow rounded-4 p-4">
+                        <h3 class="mb-4">Análise das Moedas</h3>
+                        <div class="mb-3">
+                            <h6 class="text-muted" id="ultima-cot">Ultima Cotação</h6>
+                            <div class="fs-5 fw-semibold" id="card-moeda">BRL 1.00 -> BRL 1.00</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <div class="border rounded-3 p-3 bg-light text-center">
+                                    <h6 class="text-secondary mb-1">Média (30 dias)</h6>
+                                    <div class="fs-5 fw-bold text-dark" id="avarage-ask">0.00</div>
+                                </div>
                             </div>
+                            <div class="col-sm-6 mb-3">
+                               <div class="border rounded-3 p-3 bg-light text-center">
+                                    <h6 class="text-secondary mb-1">Variação Média (30 dias)</h6>
+                                    <div class="fs-5 fw-bold text-dark" id="variation">0%</div>
+                               </div>
+                            </div>
+                        </div>
+                        <div class="d-grid mt-3">
+                            <button class="btn btn-outline-success">Atualizar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 {% endblock %}

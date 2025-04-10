@@ -29,12 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     } 
 
                     let cotmoeda = await response.json();
-                    document.querySelector('#text-result').innerHTML = `${cotmoeda['valor_convertido']}`;
+                    let symbol2 = cotmoeda['symbol2'];
+                    document.querySelector('#text-result').innerHTML = `${symbol2} ${cotmoeda['valor_convertido']}`;
                 } else if (moedaOrigem == moedaDestino) {
                     valorfixado = parseFloat(valor).toFixed(2);
-                    document.querySelector('#text-result').innerHTML = `${valorfixado}`;
-                } else if (input.value == ' '){
-                    document.querySelector('#text-result').innerHTML = '00.00';
+                    document.querySelector('#text-result').innerHTML = `${symbol2}${valorfixado}`;
                 }
 
             } catch (error) {
@@ -57,10 +56,18 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             let data = await response.json()
-            let avarageAsk = data["avarage"];
+            let avarageAsk = data["avarageAsk"];
+            let avarageBid = data["avarageBid"]
             let variation = data["variation"];
-            document.querySelector('#variation').innerHTML = `${variation}%`
-            document.querySelector('#avarage-ask').innerHTML = `${avarageAsk}`;
+            let venda = data["ask"];
+            let date = data["date"];
+            let spread = data["spread"]
+            let symbol1 = data["symbol1"];
+            let symbol2 = data["symbol2"];
+            document.querySelector('#ultima-cot').innerHTML = `${date}`;
+            document.querySelector('#card-moeda').innerHTML = `${moedaOrigem} ${symbol1} 1.00 -> ${moedaDestino} ${symbol2} ${venda}`;
+            document.querySelector('#variation').innerHTML = `${variation}%`;
+            document.querySelector('#avarage-ask').innerHTML = `${symbol2} ${avarageAsk}`;
 
         }
     }
@@ -73,5 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //Atualização do dashboard
     moeda1.addEventListener('change', debounce(atualizadash, 300));
     moeda2.addEventListener('change', debounce(atualizadash, 300));
+   
     
+    atualizaConversao();
+    atualizadash();
 });
