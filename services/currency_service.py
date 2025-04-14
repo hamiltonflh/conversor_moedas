@@ -37,6 +37,12 @@ class CurrencyService:
             return {'erro': f'Erro na requisição: {str(e)}'}
 
     def get_indicators(self, moeda1, moeda2, dias):
+
+        dias = int(dias)
+        if dias < 1 or dias > 30:
+            return {'erro': 'O número de dias deve ser entre 1 e 30'}
+        
+        
         if moeda1 == moeda2:
             return {
                 'avarageAsk': 0.00,
