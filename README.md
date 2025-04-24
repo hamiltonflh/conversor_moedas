@@ -71,15 +71,15 @@ conversor_moedas/
         moeda1: Código da moeda de origem (ex.: USD).
         moeda2: Código da moeda de destino (ex.: BRL).
         valor: Valor a ser convertido.
-# Resposta:
-{
-  "moeda1": "USD",
-  "moeda2": "BRL",
-  "symbol1": "$",
-  "symbol2": "R$",
-  "valor_original": 100.0,
-  "valor_convertido": 500.0
-}
+    Resposta:
+    {
+    "moeda1": "USD",
+    "moeda2": "BRL",
+    "symbol1": "$",
+    "symbol2": "R$",
+    "valor_original": 100.0,
+    "valor_convertido": 500.0
+    }
 
 # Indicadores Financeiros
     Endpoint: /indicators
@@ -87,18 +87,18 @@ conversor_moedas/
         moeda1: Código da moeda de origem.
         moeda2: Código da moeda de destino.
         dias: Número de dias para cálculo dos indicadores (1 a 30).
-        Resposta:
-        {
-            "moeda1": "USD",
-            "moeda2": "BRL",
-            "symbol1": "$",
-            "symbol2": "R$",
-            "ask": 5.0,
-            "variation": 0.5,
-            "avarageAsk": 5.1,
-            "avarageBid": 4.9,
-            "date": "24-04-2025 12:00:00 UTC -0300"
-        }
+    Resposta:
+    {
+        "moeda1": "USD",
+        "moeda2": "BRL",
+        "symbol1": "$",
+        "symbol2": "R$",
+        "ask": 5.0,
+        "variation": 0.5,
+        "avarageAsk": 5.1,
+        "avarageBid": 4.9,
+        "date": "24-04-2025 12:00:00 UTC -0300"
+    }
         
 ## Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
