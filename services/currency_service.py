@@ -82,7 +82,6 @@ class CurrencyService:
                 'variation': round(variation * 100, 2),
                 'avarageAsk': round(float(avarageAsk), 2),
                 'avarageBid': round(float(avarageBid), 2),
-                'spread': round(float(spread) * 100, 2),
                 'date': date.strftime('%d-%m-%Y %H:%M:%S UTC %Z%z')
             }
         except Exception as e:
